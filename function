@@ -2,21 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package geometry;
-
-import javax.swing.JOptionPane;
+package dialog.calculator;
 
 /**
  *
- * @author MELENDRES_COMP111
+ * @author USER
  */
-public class Geometry {
+import javax.swing.JOptionPane;
+public class DialogCalculator {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        double k=0;
+    public static void main(String[] args) {   
+           double k=0;
      String[] geometry={"area of circle", "area of rectangle","area of triangle","volume of sphere","volume of cylinder","calculateCircleSegmentArea","SphereSurfaceArea","TriangleSide"};
       double select = JOptionPane.showOptionDialog(
             null,"area of circle, area of rectangle,area of triangle,volume of sphere,volume of cylinder,calculateCircleSegmentArea,SphereSurfaceArea,TriangleSide\n"                         
@@ -104,7 +103,7 @@ return mn;
    public static double calculateTriangleArea(String geometry[]) {
      double base=  Double.parseDouble(JOptionPane.showInputDialog("ENTER VALUE OF base :"));
 double height=  Double.parseDouble(JOptionPane.showInputDialog("ENTER VALUE OF height:"));  
-double k=(1/2)*(base*height);
+double k=0.5 *base*height;
 return k;
    }  
    public static double calculateCylinderArea(String geometry[]) {
