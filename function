@@ -16,32 +16,51 @@ public class DialogCalculator {
      */
     public static void main(String[] args) {   
            double k=0;
-     String[] geometry={"area of circle", "area of rectangle","area of triangle","volume of sphere","volume of cylinder","calculateCircleSegmentArea","SphereSurfaceArea","TriangleSide"};
+     String[] geometry={
+         "area of circle",
+         "area of rectangle",
+         "area of triangle",
+         "volume of sphere ",
+         "volume of cylinder",
+         "calculateCircleSegmentArea",
+         "SphereSurfaceArea",
+         "TriangleSide"
+     };
       double select = JOptionPane.showOptionDialog(
-            null,"area of circle, area of rectangle,area of triangle,volume of sphere,volume of cylinder,calculateCircleSegmentArea,SphereSurfaceArea,TriangleSide\n"                         
-           + "Please select an option:",   
-            "Choice Dialog",             
-            JOptionPane.DEFAULT_OPTION,    
-            JOptionPane.QUESTION_MESSAGE,   
-            null,                          
-            geometry,                      
-            geometry[0] 
-                    );
-          if (select==0){
-         JOptionPane.showMessageDialog(null,calculateCircleArea(geometry));
-          }else if ( select==5){
-                 JOptionPane.showMessageDialog(null,calculateCircleSegmentArea(geometry));
-          }else if (select==3){
-                  JOptionPane.showMessageDialog(null,calculateSphereVolume(geometry));
-          }else if (select==6){
-                 JOptionPane.showMessageDialog(null,calculateSphereSurfaceArea(geometry));
-          }else if (select==7){
-                  JOptionPane.showMessageDialog(null,"the value of 3rd side is : "+calculateTriangleSide(geometry));
-          }else if (select==1){
-                 JOptionPane.showMessageDialog(null,calculateRectangleArea(geometry));
-          }else if (select==2){
-                 JOptionPane.showMessageDialog(null,calculateTriangleArea(geometry));
-          }
+            null,
+            "Please select an option:\n"
+            + "area of circle,\n"
+            + " area of rectangle,\n"
+            + " area of triangle, \n"
+            + "volume of sphere, \n"
+            + "volume of cylinder, \n"
+            + "calculateCircleSegmentArea,\n"
+            + " SphereSurfaceArea,"
+            + " TriangleSide",
+            "Choice Dialog",
+            JOptionPane.DEFAULT_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            geometry,
+            geometry[0]
+        );
+         if (select == 0) {
+            JOptionPane.showMessageDialog(null, "Circle Area: " + calculateCircleArea(geometry));
+        } else if (select == 1) {
+            JOptionPane.showMessageDialog(null, "Rectangle Area: " + calculateRectangleArea(geometry));
+        } else if (select == 2) {
+            JOptionPane.showMessageDialog(null, "Triangle Area: " + calculateTriangleArea(geometry));
+        } else if (select == 3) {
+            JOptionPane.showMessageDialog(null, "Sphere Volume: " + calculateSphereVolume(geometry));
+        } else if (select == 4) {
+            JOptionPane.showMessageDialog(null, "Cylinder Volume: " + calculateCylinderVolume(geometry));
+        } else if (select == 5) {
+            JOptionPane.showMessageDialog(null, "Circle Segment Area: " + calculateCircleSegmentArea(geometry));
+        } else if (select == 6) {
+            JOptionPane.showMessageDialog(null, "Sphere Surface Area: " + calculateSphereSurfaceArea(geometry));
+        } else if (select == 7) {
+            JOptionPane.showMessageDialog(null, "The value of the 3rd side is: " + calculateTriangleSide(geometry));
+        }
     }
 
     public static double calculateCircleArea(String geometry[]) {
@@ -59,7 +78,9 @@ public static double calculateCircleSegmentArea(String geometry[]) {
    double radians = degrees * (Math.PI / 180);
    double exponent = 2;
    double ex=Math.pow(radius, exponent);
-   double b=(ex/over)*(radians-Math.sin(radians));
+   double v=ex/over;
+   double yu=radians-Math.sin(radians);
+   double b=v*yu;
    return b;
 }
 public static double calculateSphereVolume(String geometry[]) {
@@ -106,7 +127,7 @@ double height=  Double.parseDouble(JOptionPane.showInputDialog("ENTER VALUE OF h
 double k=0.5 *base*height;
 return k;
    }  
-   public static double calculateCylinderArea(String geometry[]) {
+   public static double calculateCylinderVolume(String geometry[]) {
      double height=  Double.parseDouble(JOptionPane.showInputDialog("ENTER VALUE OF height:")); 
      double r=  Double.parseDouble(JOptionPane.showInputDialog("ENTER VALUE OF radius:"));
      double expp=2;
